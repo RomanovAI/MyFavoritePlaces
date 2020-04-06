@@ -38,7 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7E30AF1C2432102200254C9E /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E30AF1C2432102200254C9E /* MyFavoriteMyFavoritePlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFavoriteMyFavoritePlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E30AF1F2432102200254C9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E30AF212432102200254C9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7E30AF292432102200254C9E /* Places.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Places.xcdatamodel; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 		7E30AF132432102200254C9E = {
 			isa = PBXGroup;
 			children = (
-				7E30AF1E2432102200254C9E /* Places */,
+				7E30AF1E2432102200254C9E /* MyFavoritePlaces */,
 				7E30AF1D2432102200254C9E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,12 +92,12 @@
 		7E30AF1D2432102200254C9E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7E30AF1C2432102200254C9E /* Places.app */,
+				7E30AF1C2432102200254C9E /* MyFavoriteMyFavoritePlaces.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7E30AF1E2432102200254C9E /* Places */ = {
+		7E30AF1E2432102200254C9E /* MyFavoritePlaces */ = {
 			isa = PBXGroup;
 			children = (
 				7E30AF1F2432102200254C9E /* AppDelegate.swift */,
@@ -112,7 +112,7 @@
 				7E30AF302432102300254C9E /* Info.plist */,
 				7E30AF282432102200254C9E /* Places.xcdatamodeld */,
 			);
-			path = Places;
+			path = MyFavoritePlaces;
 			sourceTree = "<group>";
 		};
 		7E30AF36243212E800254C9E /* ViperModules */ = {
@@ -208,9 +208,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7E30AF1B2432102200254C9E /* Places */ = {
+		7E30AF1B2432102200254C9E /* MyFavoritePlaces */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7E30AF332432102300254C9E /* Build configuration list for PBXNativeTarget "Places" */;
+			buildConfigurationList = 7E30AF332432102300254C9E /* Build configuration list for PBXNativeTarget "MyFavoritePlaces" */;
 			buildPhases = (
 				7E30AF182432102200254C9E /* Sources */,
 				7E30AF192432102200254C9E /* Frameworks */,
@@ -220,9 +220,9 @@
 			);
 			dependencies = (
 			);
-			name = Places;
+			name = MyFavoritePlaces;
 			productName = Places;
-			productReference = 7E30AF1C2432102200254C9E /* Places.app */;
+			productReference = 7E30AF1C2432102200254C9E /* MyFavoriteMyFavoritePlaces.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -240,7 +240,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7E30AF172432102200254C9E /* Build configuration list for PBXProject "Places" */;
+			buildConfigurationList = 7E30AF172432102200254C9E /* Build configuration list for PBXProject "MyFavoritePlaces" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -253,7 +253,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7E30AF1B2432102200254C9E /* Places */,
+				7E30AF1B2432102200254C9E /* MyFavoritePlaces */,
 			);
 		};
 /* End PBXProject section */
@@ -438,13 +438,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MH998C7G9F;
-				INFOPLIST_FILE = Places/Info.plist;
+				INFOPLIST_FILE = MyFavoritePlaces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Artem-Romanov.Places";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MyFavoriteMyFavoritePlaces;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -456,13 +456,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MH998C7G9F;
-				INFOPLIST_FILE = Places/Info.plist;
+				INFOPLIST_FILE = MyFavoritePlaces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Artem-Romanov.Places";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MyFavoriteMyFavoritePlaces;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -471,7 +471,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7E30AF172432102200254C9E /* Build configuration list for PBXProject "Places" */ = {
+		7E30AF172432102200254C9E /* Build configuration list for PBXProject "MyFavoritePlaces" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7E30AF312432102300254C9E /* Debug */,
@@ -480,7 +480,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7E30AF332432102300254C9E /* Build configuration list for PBXNativeTarget "Places" */ = {
+		7E30AF332432102300254C9E /* Build configuration list for PBXNativeTarget "MyFavoritePlaces" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7E30AF342432102300254C9E /* Debug */,
