@@ -1,5 +1,5 @@
 //
-//  UIColor+Extensions.swift
+//  UIColor+Extension.swift
 //  Places
 //
 //  Created by Артем Романов on 30.03.2020.

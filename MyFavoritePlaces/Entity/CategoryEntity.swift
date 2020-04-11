@@ -1,5 +1,5 @@
 //
-//  Category.swift
+//  CategoryEntity.swift
 //  Places
 //
 //  Created by Артем Романов on 05.04.2020.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-struct Category {
-    let id: String
+struct CategoryEntity: Encodable {
+   // let id: String
     let name: String
-    let color: UIColor
+    let color: String
 }

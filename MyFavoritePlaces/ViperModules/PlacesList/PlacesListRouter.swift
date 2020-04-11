@@ -12,10 +12,10 @@ final class PlacesListRouter: PlacesListRouterProtocol {
     
     weak var viewController: UIViewController?
     
-    static func createModule() -> UIViewController {
+    static func createModule(serviceContainer: ServiceContainer) -> UIViewController {
 
         let view = PlacesListViewController(nibName: nil, bundle: nil)
-        let interactor = PlacesListInteractor()
+        let interactor = PlacesListInteractor(serviceContainer: serviceContainer)
         let router = PlacesListRouter()
         let presenter = PlacesListPresenter(view: view, interactor: interactor, router: router)
         

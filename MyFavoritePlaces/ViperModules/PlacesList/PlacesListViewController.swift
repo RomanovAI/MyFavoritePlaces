@@ -22,12 +22,7 @@ final class PlacesListViewController: UIViewController, PlacesListViewProtocol {
             tableView.backgroundColor = .white
             tableView.register(UINib(nibName: placesListTableCell, bundle: .main), forCellReuseIdentifier: placesListTableCell)
             tableView.separatorStyle = .none
-            
         }
-    }
-    
-    func reloadTable() {
-        tableView.reloadData()
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -49,6 +44,15 @@ final class PlacesListViewController: UIViewController, PlacesListViewProtocol {
         presenter?.viewDidLoad()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewDidLoad()
+    }
+    
+    func reloadTable() {
+           tableView.reloadData()
+       }
     
     private func setupNavBar() {
         navigationItem.title = "Места"
@@ -99,12 +103,12 @@ final class PlacesListViewController: UIViewController, PlacesListViewProtocol {
 extension PlacesListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.placeTableStructure?.placesListCount ?? 0
+        return presenter?.placeTableModel.placeCellModelsCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: placesListTableCell, for: indexPath) as? PlacesListTableCell,
-              let cellModel = presenter?.placeTableStructure?.cellModel(indexPath: indexPath) else { return UITableViewCell() }
+              let cellModel = presenter?.placeTableModel.cellModel(indexPath: indexPath) else { return UITableViewCell() }
         cellModel.backgroundColor = (indexPath.row % 2 == 0) ? .customGrey : .white
         cell.setup(with: cellModel)
         return cell

@@ -36,7 +36,7 @@ class PlacesListTableCell: UITableViewCell {
         placeImageView.image = model.image
         titleLabel.text = model.title
         ratingControl.rating = model.rating ?? 0
-        categoriesPanel.setupCategories(categories: model.categories)
+        //categoriesPanel.setupCategories(categories: model.categories)
     }
     
 }

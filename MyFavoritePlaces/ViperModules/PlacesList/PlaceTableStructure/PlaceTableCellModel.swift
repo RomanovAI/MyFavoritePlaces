@@ -10,27 +10,15 @@ import UIKit
 
 class PlaceTableCellModel {
     
-    private var place: Place
+    var title: String?
     
-    var title: String {
-        return place.name
-    }
+    var image: UIImage?
     
-    var image: UIImage? {
-        return place.image
-    }
+    var rating: Int?
     
-    var rating: Int? {
-        return place.rating
-    }
-    
-    var categories: [Category] {
-        return place.categories
-    }
+    var categories: [String]?
     
     var backgroundColor: UIColor?
     
-    init(place: Place) {
-        self.place = place
-    }
+    var action: (() -> Void)?
 }

@@ -12,6 +12,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
+    private var serviceContainer: ServiceContainer = {
+        let container = ServiceContainer()
+        container.networkService = Service()
+        return container
+    }()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -22,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let mapModule = MapRouter.createModule()
         
-        let placesListModule = PlacesListRouter.createModule()
+        let placesListModule = PlacesListRouter.createModule(serviceContainer: serviceContainer)
         let placesListNavigationController = PlacesNavigationController(rootViewController: placesListModule)
         
         

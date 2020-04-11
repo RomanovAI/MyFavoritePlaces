@@ -27,6 +27,7 @@ final class PlacesListPresenter: PlacesListPresenterProtocol {
     func viewDidLoad() {
         guard let places = interactor?.places else { return }
         placeTableStructure = PlaceTableStructure(placesList: places)
+        interactor?.fetchPlacesList()
     }
 }
 
