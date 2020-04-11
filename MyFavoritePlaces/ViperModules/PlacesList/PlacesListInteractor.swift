@@ -13,59 +13,67 @@ final class PlacesListInteractor: PlacesListInteractorProtocol {
     weak var presenter: PlacesListPresenterProtocol?
     private var serviceContainer: ServiceContainer
     
-    let places = [
-        PlaceEntity(id: "\(Date())",
-            name: "Красная площадь",
-            image: UIImage(named: "Image"),
-            lat: 55.0, long: 77.0,
-            categories: [Category(id: "1", name: "Достопримечательность", color: .systemRed)],
-            rating: 5, shortDescription: "Красная площадь в Москве", longDescription: "Красная площадь в Москве"),
-        PlaceEntity(id: "\(Date())",
-            name: "Воробьевы горы",
-            image: UIImage(named: "Image"),
-            lat: 75.0, long: 17.0,
-            categories: [Category(id: "1", name: "Достопримечательность", color: .systemRed)],
-            rating: 2, shortDescription: nil, longDescription: nil),
-        PlaceEntity(id: "\(Date())",
-            name: "Лужники",
-            image: UIImage(named: "Image"),
-            lat: 55.0, long: 77.0,
-            categories: [Category(id: "2", name: "Спорт", color: .systemBlue)],
-            rating: 3, shortDescription: "Лужники в Москве", longDescription: "Лужники в Москве"),
-        PlaceEntity(id: "\(Date())",
-            name: "Парк Зарядье",
-            image: UIImage(named: "Image"),
-            lat: 55.0, long: 77.0,
-            categories: [
-                Category(id: "1", name: "Достопримечательность", color: .systemRed),
-                Category(id: "1", name: "Достопримечательность", color: .systemRed),
-                Category(id: "1", name: "Достопримечательность", color: .systemRed),
-                Category(id: "1", name: "Достопримечательность", color: .systemRed),
-                Category(id: "3", name: "Отдых", color: .systemGreen)],
-            rating: 4, shortDescription: "Парк Зарядье в Москве", longDescription: "Парк Зарядье в Москве"),
-        PlaceEntity(id: "\(Date())",
-            name: "Останкинская башня",
-            image: UIImage(named: "Image"),
-            lat: 55.0, long: 77.0,
-            categories: [Category(id: "1", name: "Достопримечательности", color: .systemRed)],
-            rating: 1, shortDescription: "Останкинская башня в Москве", longDescription: "Останкинская башня в Москве"),
-    ]
+    var places = [PlaceEntity]()
+    
     
     init(serviceContainer: ServiceContainer) {
         self.serviceContainer = serviceContainer
     }
     
     func fetchPlacesList() {
+        places = [PlaceEntity]()
         guard let service = serviceContainer.networkService else { return }
-        let placesOperation = PlacesOperation(service: service)
-        placesOperation.getList(completion: { result in
+        let placeOperation = PlaceOperation(service: service)
+        
+//        placeOperation.fetchList(completion: { result in
+//            switch result {
+//            case .success(let models):
+//                DispatchQueue.main.async {
+//                    print("MODEL==", models)
+//                    models.forEach({ [unowned self] model in
+//                        guard let placeEntity = PlaceEntity(model: model) else { return }
+//                        self.places.append(placeEntity)
+//                    })
+//                    self.presenter?.makeStructure()
+//                }
+//            case .failure(let error):
+//                print("V INTERACTORE ERROR=", error)
+//                return
+//            }
+//
+//        })
+//        fetchCategoriesList()
+  add()
+    }
+    
+    func fetchCategoriesList() {
+        guard let service = serviceContainer.networkService else { return }
+        let categoryOperation = CategoryOperation(service: service)
+        categoryOperation.fetchList(completion: { result in
             switch result {
-            case .success(let model):
-                print("MODEL==", model)
-                
+            case .success(let models):
+                DispatchQueue.main.async {
+                    print("MODEL==", models)
+                }
             case .failure(let error):
-                //print("V INTERACTORE ERROR=", error)
-                return
+                print(error)
+            }
+            
+        })
+    }
+    
+    func add() {
+        guard let service = serviceContainer.networkService else { return }
+        let categoryOperation = CategoryOperation(service: service)
+        let category = CategoryEntity(name: "Сады", color: "e8887")
+        categoryOperation.add(categoryEntity: category, completion: { result in
+            switch result {
+            case .success(let models):
+                DispatchQueue.main.async {
+                    print("MODEL==", models)
+                }
+            case .failure(let a): break
+             //   print(error)
             }
             
         })

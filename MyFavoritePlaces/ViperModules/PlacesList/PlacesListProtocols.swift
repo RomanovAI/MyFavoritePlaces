@@ -14,9 +14,10 @@ protocol PlacesListRouterProtocol: class {
 
 protocol PlacesListPresenterProtocol: class {
     
-    var placeTableStructure: PlaceTableStructure? { get }
+    var placeTableModel: PlaceTableModel { get }
     
     func viewDidLoad()
+    func makeStructure()
 }
 
 protocol PlacesListInteractorProtocol: class {
