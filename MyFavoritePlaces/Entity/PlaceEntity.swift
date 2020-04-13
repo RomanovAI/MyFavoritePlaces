@@ -12,7 +12,7 @@ struct PlaceEntity: Encodable {
     
     let id: String
     let name: String
-    let image: String?
+    let stringUrlImage: String?
     let lat: Double
     let long: Double
     let categories: [String]
@@ -38,7 +38,8 @@ extension PlaceEntity {
         
         self.id = id
         self.name = name
-        self.image = image
+        
+        self.stringUrlImage = image
         self.lat = lat
         self.long = long
         self.categories = categories

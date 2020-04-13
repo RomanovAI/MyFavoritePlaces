@@ -20,7 +20,7 @@ class PlacesNavigationController: UINavigationController {
     private func setupStatusBarBackgroundColor() {
         if #available(iOS 13.0, *) {
             let app = UIApplication.shared
-
+            
             let statusBarHeight: CGFloat = app.statusBarFrame.size.height
             
             let statusbarView = UIView()

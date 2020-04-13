@@ -11,8 +11,8 @@ import Foundation
 
 enum ServiceError: Error {
     case failedRequest(Error)
-    case failedParse(NSString)
     case failedData
+    case parsingError(NSString)
     
     var localizedDescription: String {
         switch self {
@@ -20,9 +20,8 @@ enum ServiceError: Error {
             return error.localizedDescription
         case .failedData:
             return "Некорректная дата"
-        case .failedParse(let dataString):
-            print("dataString=", dataString)
-            return "Не правильно распарсил"
+        case .parsingError(let dataString):
+            return "Ошибка при парсинге: \(dataString)"
         }
     }
 }
@@ -68,7 +67,7 @@ class Service: ServiceProtocol {
                 completion(.success(objectArray))
             } catch {
                 guard let dataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue) else { return }
-                completion(.failure(.failedParse(dataString)))
+                completion(.failure(.parsingError(dataString)))
             }
         }).resume()
     }

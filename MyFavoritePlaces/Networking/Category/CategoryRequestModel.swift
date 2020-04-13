@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct CategoryRequestModel: Encodable {
+class CategoryRequestModel: Encodable {
     
     var dict = [String: CategoryEntity]()
     
-    mutating func add(category: CategoryEntity) {
+    func add(category: CategoryEntity) {
         dict[category.name] = category
     }
 }

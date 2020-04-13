@@ -32,7 +32,7 @@ class CategoryOperation {
     }
     
     func add(categoryEntity: CategoryEntity, completion: @escaping (Result<[CategoryResponseModel], ServiceError>) -> Void) {
-        var model = CategoryRequestModel()
+        let model = CategoryRequestModel()
         model.add(category: categoryEntity)
         let request = Request(endPoint: endPoint, method: .PATCH, model: model.dict)
        

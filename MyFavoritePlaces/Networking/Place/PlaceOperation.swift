@@ -33,7 +33,7 @@ class PlaceOperation {
     }
     
     func add(placeEntity: PlaceEntity, completion: @escaping (Result<[CategoryResponseModel], ServiceError>) -> Void) {
-        var model = PlaceRequestModel()
+        let model = PlaceRequestModel()
         model.add(place: placeEntity)
         let request = Request(endPoint: endPoint, method: .PATCH, model: model.dict)
         

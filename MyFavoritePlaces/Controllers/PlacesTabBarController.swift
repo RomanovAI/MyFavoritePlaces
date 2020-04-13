@@ -31,7 +31,8 @@ class PlacesTabBarController: UITabBarController {
     }()
     
     @objc private func addPlace() {
-        print("add")
+        let createNewPlaceModule = CreateNewPlaceRouter.createModule()
+        present(createNewPlaceModule, animated: true)
     }
     
     override func viewDidLoad() {

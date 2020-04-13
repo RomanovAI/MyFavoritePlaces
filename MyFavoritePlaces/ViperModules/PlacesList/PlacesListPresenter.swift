@@ -44,9 +44,7 @@ final class PlacesListPresenter: PlacesListPresenterProtocol {
     private func makeCellModel(entity: PlaceEntity) -> PlaceTableCellModel  {
         let model = PlaceTableCellModel()
         model.title = entity.name
-        if let image = entity.image {
-            model.image = UIImage(named: image)
-        }
+        model.image = UIImage(named: "Image")
         model.rating = entity.rating
         model.categories = entity.categories
         return model

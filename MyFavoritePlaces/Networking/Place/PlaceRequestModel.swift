@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct PlaceRequestModel: Encodable {
+class PlaceRequestModel: Encodable {
     var dict = [String: PlaceEntity]()
     
-    mutating func add(place: PlaceEntity) {
+    func add(place: PlaceEntity) {
         dict[place.name] = place
     }
 }
