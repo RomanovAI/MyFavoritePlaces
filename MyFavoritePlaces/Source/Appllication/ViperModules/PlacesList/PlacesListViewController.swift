@@ -45,11 +45,6 @@ final class PlacesListViewController: UIViewController, PlacesListViewProtocol {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        presenter?.viewDidLoad()
-    }
-    
     func reloadTable() {
            tableView.reloadData()
        }
@@ -110,7 +105,7 @@ extension PlacesListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: placesListTableCell, for: indexPath) as? PlacesListTableCell,
               let cellModel = presenter?.placeTableModel.cellModel(indexPath: indexPath) else { return UITableViewCell() }
         cellModel.backgroundColor = (indexPath.row % 2 == 0) ? .customGrey : .white
-        cell.setup(with: cellModel)
+        cell.model = cellModel
         return cell
     }
     

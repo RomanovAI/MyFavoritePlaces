@@ -25,8 +25,9 @@ protocol PlacesListInteractorProtocol: class {
     var presenter: PlacesListPresenterProtocol?  { get set }
     
     var places: [PlaceEntity] { get }
+    var categories: [CategoryEntity] { get }
     
-    func fetchPlacesList() 
+    func fetchData() 
 }
 
 protocol PlacesListViewProtocol: class {

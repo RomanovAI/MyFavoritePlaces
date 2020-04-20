@@ -26,7 +26,7 @@ final class PlacesListPresenter: PlacesListPresenterProtocol {
     
     func viewDidLoad() {
         guard let interactor = interactor else { return }
-        interactor.fetchPlacesList()
+        interactor.fetchData()
     }
     
     func makeStructure() {
@@ -44,9 +44,20 @@ final class PlacesListPresenter: PlacesListPresenterProtocol {
     private func makeCellModel(entity: PlaceEntity) -> PlaceTableCellModel  {
         let model = PlaceTableCellModel()
         model.title = entity.name
-        model.image = UIImage(named: "Image")
+        if let imageData = entity.imageData, let image = UIImage(data: imageData) {
+            model.image = image
+        }
         model.rating = entity.rating
-        model.categories = entity.categories
+        var modelCategories = [CategoryCollectionCellModel]()
+        interactor?.categories.forEach({ category in
+            for categoryId in entity.categories {
+                if category.id == categoryId {
+                    let categoryCollectionCellModel = CategoryCollectionCellModel(title: category.name, color: category.color)
+                    modelCategories.append(categoryCollectionCellModel)
+                }
+            }
+        })
+        model.categories = modelCategories
         return model
     }
     
